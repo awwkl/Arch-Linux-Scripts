@@ -1,0 +1,28 @@
+#!/bin/bash
+
+### This script lists the log messages for recently explicitly installed pacman packages
+
+final_logs=90				# Configure total number of messages displayed in total
+initial_logs=$(($final_logs * 2)) 	# Extra logs as some are for dependency (non-explicit) packages 
+
+# create array of 
+# most recent pacman log messages that include "installed" (or "reinstalled")
+mapfile -t log_messages < <(grep installed /var/log/pacman.log | tail -n $initial_logs)
+
+# create array of 
+# currently, explicitly installed packages from pacman, with --quiet option to exclude version
+mapfile -t package_list < <(pacman -Qeq)
+
+# iterate through the pacman log messages
+for msg in "${log_messages[@]}"
+do
+	# only echo the log message if it involves a currently, explicitly installed package 
+	for pkg in "${package_list[@]}"	
+	do
+		if [[ "$msg" =~ "$pkg" ]]	# if message string includes package
+		then echo "$msg"; break		# then echo the message
+		fi
+	done
+done \
+| tail -n $final_logs \
+| grep installed --color=always

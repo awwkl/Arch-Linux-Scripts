@@ -1,0 +1,7 @@
+#!/bin/bash
+
+### This script lists the log messages for recently upgraded explicit pacman packages
+
+final_logs=30		# Configure total number of messages displayed in total
+
+grep upgraded /var/log/pacman.log --color=always | tail -n $final_logs

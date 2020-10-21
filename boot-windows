@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# NOTE: the boot order will depend on your specific efibootmgr 
+
+sudo efibootmgr -n 0

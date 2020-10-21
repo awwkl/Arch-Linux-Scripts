@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Query [-Q] for dependency [d] packages that are orphans [t] (no longer required by any packages), quietly [q] (do not display versioning)"
+echo "then, remove [-R], searching recursively [s] to remove their orphaned dependencies, including those unneeded [u] after this operation, do not save their config files (nosave) [n]"
+set -x
+sudo pacman -Rsun $(pacman -Qdtq)
+set +x

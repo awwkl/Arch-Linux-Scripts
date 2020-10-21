@@ -1,0 +1,2 @@
+#!/bin/bash
+for i in `pacman -Qeq`; do grep $i /var/log/pacman.log | grep installed; done | sort

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+KERNEL_VERSION=$(pacman -Q linux | cut -d' ' -f2)
+
+echo "Backing up kernel and initramfs..."
+echo "Store a copy of current version of kernel and initramfs, in /boot"
+echo
+sudo cp -v /boot/vmlinuz-linux /boot/vmlinuz-$KERNEL_VERSION
+
+sudo cp -v /boot/initramfs-linux.img /boot/initramfs-$KERNEL_VERSION.img
+
+echo "updating grub config file in /boot/grub/grub.cfg..."
+sudo grub-mkconfig -o /boot/grub/grub.cfg

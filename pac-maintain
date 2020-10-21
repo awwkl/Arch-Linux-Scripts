@@ -1,0 +1,22 @@
+#!/bin/bash
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+sudo true;
+
+echo "<<< BELOW BEGINS THE SCRIPT TO DELETE UNNEEDED PACMAN PACKAGES >>>" 
+echo
+
+${bold}
+echo "RUN paccache-r"
+echo "Remove [-r] cached versions of packages, except most recent 3 [-k 3 is default]"
+${normal}
+paccache -r
+
+echo
+
+${bold}
+echo "RUN paccache -r"
+echo "Remove [-r] all [-k 0] cached versions of UNINSTALLED [u] packages"
+${normal}
+paccache -ruk0

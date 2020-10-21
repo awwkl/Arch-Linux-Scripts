@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rsync -avh --delete ~/bin/ /media/sandisk_ssd/bin/
+rsync -avh --delete ~/Documents/ /media/sandisk_ssd/Documents/
+rsync -avh --delete ~/Pictures/ /media/sandisk_ssd/Pictures/
+rsync -avh --delete ~/programming/ /media/sandisk_ssd/programming/
+rsync -avh --delete ~/university/ /media/sandisk_ssd/university/
+
+echo ">> rsync -avh --delete ~/xyz/ /media/sandisk_ssd/xyz/"
+echo ">> archive, verbose, human-readable, delete extra files in destination directories"
+echo
+echo ">> Completed backup of"
+echo ">>	~/bin, ~/Documents, ~/Pictures, ~/programming, ~/university"
+echo ">>to sandisk external SSD"
