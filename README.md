@@ -4,6 +4,8 @@ These are my Bash scripts that I use for my Arch Linux system. They are (1) scri
 
 I have added some comments to explain the commands in the scripts. You can also email me if you have questions on how to apply these scripts to your particular system. 
 
+### Additional Notes
+
 Please check the actual commands in the script to ensure they apply to your system, as some commands are necessarily specific to each Linux system. Also, please run them as normal user, and not as root. 
 
-Further, they use the Bash interpreter shebang `#!/bin/bash` which works for me; you can change it if you wish to invoke a different command interpreter.
+Further, these scripts use the Bash interpreter shebang `#!/bin/bash`; you can change it if you wish to invoke a different command interpreter.
